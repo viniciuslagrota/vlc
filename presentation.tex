@@ -178,18 +178,7 @@
 	\end{textblock*}
 \end{frame}	
 
-%--------------------------------------------------------------------------
-\subsection{System diagram}
-%--------------------------------------------------------------------------
-\begin{frame}
-\frametitle{System diagram}
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{figuras/transceptor}
-	\caption{System diagram.}
-	\label{fig:transceptor}
-\end{figure}
-\end{frame}
+
 
 %--------------------------------------------------------------------------
 \section{Modulation}
@@ -282,7 +271,7 @@ Colour Domain Modulation:
 
 
 %--------------------------------------------------------------------------
-\section{Channel}
+\section{Equations}
 \begin{frame}
 \frametitle{Outlines}
 	\small
@@ -292,8 +281,43 @@ Colour Domain Modulation:
 %\subsection{Transmitter}
 %-----------------------
 \begin{frame}
-\frametitle{Channel}
+\frametitle{System diagram}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{figuras/transceptor}
+		\caption{System diagram.}
+		\label{fig:transceptor}
+	\end{figure}
+\end{frame}
 
+\begin{frame}
+\frametitle{Equations}
+	VLC system corrupted by AWGN:
+	\begin{equation}
+		{\mathbf{Y}_v} = {\mathbf{H}_v}{\mathbf{S}_v} + {\mathbf{N}_v}
+	\end{equation}
+	$\mathbf{Y}_v$: received sets of symbols.\\
+	$\mathbf{S}_v$: transmitted sets of symbols.\\
+	$\mathbf{H}_v$: channel frequency response.\\
+	$\mathbf{N}_v$: channel noise.\\
+	Under de influence of a hypothetical thermal noise:
+	\begin{equation}
+	{\mathbf{Y}_v} = {{\chi _0}\mathbf{H}_v}{\mathbf{S}_v} + {\mathbf{N}_v}
+	\end{equation}
+	${\chi _0}$: thermal noise ${\rm{(0 }} \le {\rm{ }}{\chi _0}{\rm{ }} \le {\rm{ 1)}}$.\\
+	 ${\chi _0} = 0 \Rightarrow$ absence of light.\\
+	 ${\chi _0} = 1 \Rightarrow$ presence of light.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{System diagram}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{figuras/block_diagram}
+		\caption{Block diagram.}
+		\label{fig:block_diagram}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
