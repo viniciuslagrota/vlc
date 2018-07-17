@@ -1,0 +1,138 @@
+%% Template para apresentação do LCOM/UFJF
+%% Versão: 1.0 - 22/09/2016
+%% Autor: Guilherme Ribeiro Colen
+%%        Andrei Camponogara
+
+\mode<presentation>
+
+%% Requirement
+\RequirePackage{tikz}
+
+%% Settings
+\setbeamertemplate{blocks}[rounded][shadow=true]  
+\setbeamersize{text margin left=28pt}
+\setbeamersize{text margin right=18pt}
+
+%% Color Settings
+\definecolor{AzulLogo}{RGB}{62,69,153}
+\definecolor{CinzaEscuro}{RGB}{75,75,77}
+\definecolor{Cinza}{RGB}{230,230,230}
+\definecolor{CinzaBranco}{RGB}{250,250,250}
+\setbeamercolor*{title page header}{fg=AzulLogo}%,bg=green}
+\setbeamercolor*{author}{fg=CinzaEscuro}%,bg=green}
+\setbeamercolor*{institute}{fg=CinzaEscuro}%,bg=black}
+\setbeamercolor*{date}{fg=CinzaEscuro}%,bg=gray}
+\setbeamercolor*{item}{fg=AzulLogo}
+\setbeamercolor*{frame title}{fg=AzulLogo}%,bg=green}
+\setbeamercolor*{frame subtitle}{fg=CinzaEscuro}%,bg=green}
+\setbeamercolor*{section num}{fg=white}%,bg=green}
+\setbeamercolor*{frame num}{fg=white}%,bg=green}
+\setbeamercolor{block title}{fg=AzulLogo,bg=Cinza}
+\setbeamercolor{block body}{bg=CinzaBranco}
+\setbeamercolor{teste}{bg=green}
+
+%% Font Settings
+\setbeamerfont{title}{size=\large,series=\bfseries}%,family*=phv}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{institute}{size=\small}
+\setbeamerfont{date}{size=\normalsize}
+\setbeamerfont{frame num}{size=\Large}
+\setbeamerfont{total frame num}{size=\scriptsize}
+\setbeamerfont{title in head/foot}{size=\small}
+\setbeamerfont{author in head/foot}{size=\scriptsize}
+\setbeamerfont{frame section}{size=\Large,series=\bfseries}
+\setbeamerfont{frame title}{size=\Large,series=\bfseries}
+\setbeamerfont{frame subtitle}{size=\small}
+%\setbeamerfont{block title}{series=\bfseries}
+
+%% Background
+\pgfdeclareimage[interpolate=true,width=\paperwidth,height=\paperheight]{fundoCapa}{fundoCapa}
+\pgfdeclareimage[interpolate=true,width=1.005\paperwidth,height=1.008\paperheight]{fundo}{fundo}
+\setbeamertemplate{background}{
+	\begin{tikzpicture}
+	\useasboundingbox (0.05,9.65) rectangle(\paperwidth,\paperheight);
+	\ifnum\thepage=1
+	\pgftext[at=\pgfpoint{0}{0},left,base]{\pgfuseimage{fundoCapa}};
+	\else
+	\pgftext[at=\pgfpoint{0}{0},left,base]{\pgfuseimage{fundo}};
+	\fi
+	\end{tikzpicture}
+}
+
+%% Title page
+\defbeamertemplate*{title page}{LCOM}[1][]
+{ 
+	\vskip1.0cm%
+	\hskip-0.02cm
+	\begin{beamercolorbox}[wd=11.82cm,ht=1.75cm,sep=0.4cm,center]{title page header}
+		\usebeamerfont{title}\inserttitle\par%
+	\end{beamercolorbox}%
+	\vfill%\vskip0.6cm%
+	\begin{beamercolorbox}[wd=\paperwidth,center]{author}
+		\usebeamerfont{author}\insertauthor
+	\end{beamercolorbox}
+	\vskip0.4cm%
+	\begin{beamercolorbox}[wd=\paperwidth,center]{institute}
+		\usebeamerfont{institute}\insertinstitute
+	\end{beamercolorbox}
+	\vfill%\vskip0.2cm%
+	\begin{beamercolorbox}[wd=\paperwidth,center]{date}
+		\usebeamerfont{date}\insertdate%
+	\end{beamercolorbox}
+}
+
+%% Frame title
+\defbeamertemplate*{frametitle}{LCOM}[1][]
+{
+	\vskip0cm
+	\begin{columns}
+	\column{0.1\paperwidth}
+	\ifnum\insertsectionnumber=0
+	\else
+	\begin{beamercolorbox}[wd=1.05cm,ht=0.677cm,dp=0.3cm,center]{section num} 
+		\usebeamerfont{frame section}\insertsectionnumber
+	\end{beamercolorbox}
+	\fi
+	\column{0.9\paperwidth}
+	\ifx\insertframesubtitle\@empty
+	\begin{beamercolorbox}[wd=0.9\paperwidth,ht=0.5cm,dp=0.477cm]{frame title} 
+		\usebeamerfont{frame title}\insertframetitle
+	\end{beamercolorbox}
+	\else
+	\begin{beamercolorbox}[wd=0.9\paperwidth,ht=0.5cm,dp=0cm]{frame title} 
+		\usebeamerfont{frame title}\insertframetitle
+	\end{beamercolorbox}
+	\vskip-0.2cm
+	\begin{beamercolorbox}[wd=0.9\paperwidth,ht=0.3cm,dp=0.077cm]{frame subtitle} 
+		\usebeamerfont{frame subtitle}{\insertframesubtitle}
+	\end{beamercolorbox}
+	\fi
+	\end{columns}
+}
+
+%% Item settings
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{sections/subsections in toc}[circle]
+
+%% Footline settings
+\setbeamertemplate{navigation symbols}{}
+\defbeamertemplate*{footline}{LCOM}
+{
+	\ifnum\thepage>1
+	\begin{columns}
+		\column{0.26\paperwidth}
+		\column{0.69\paperwidth}
+		\begin{beamercolorbox}[wd=0.69\paperwidth,ht=0.8cm,dp=0.2cm]{author} 
+			\usebeamerfont{title in head/foot}{\insertshorttitle}\\[5pt]
+			\usebeamerfont{author in head/foot}{\insertshortauthor}
+		\end{beamercolorbox}
+		\column{0.15\paperwidth}
+		\begin{beamercolorbox}[wd=0.11\paperwidth,ht=0.35cm,center]{frame num} 
+			\usebeamerfont{frame num}\insertframenumber{}\usebeamerfont{total frame num}/\inserttotalframenumber
+		\end{beamercolorbox}
+	\end{columns}
+	\else
+	\begin{beamercolorbox}[wd=\paperwidth,ht=1cm]{teste1}\end{beamercolorbox}
+	\fi}
+
+\mode<all>

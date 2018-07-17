@@ -1,0 +1,13 @@
+
+*.aux
+*.dvi
+*.log
+*.nav
+*.out
+*.pdf
+*.ps
+*.snm
+*.gz
+*.toc
+*.cdr
+*.fig
